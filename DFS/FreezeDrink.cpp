@@ -27,7 +27,7 @@ int main(void)
 {
 	int result = 0;
 	cin >> N >> M;
-	
+
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < M; j++)
@@ -56,7 +56,7 @@ int main(void)
   00011
   11111
   00000*/  // 0 is empty 
-           // i is wall 
+  // i is wall 
 
 // step 1 up
 // step 2 left
