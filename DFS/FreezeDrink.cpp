@@ -13,8 +13,14 @@ bool dfs(int x, int y) {
 
 	if (arr[x][y] == 0)
 	{
-
+		arr[x][y] = 1;
+		dfs(x - 1, y);
+		dfs(x + 1, y);
+		dfs(x, y - 1);
+		dfs(x, y + 1);
+		return true;
 	}
+	return false;
 }
 
 int main(void)
@@ -40,6 +46,8 @@ int main(void)
 			}
 		}
 	}
+
+	cout << result;
 
 	return 0;
 }
