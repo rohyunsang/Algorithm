@@ -35,7 +35,7 @@ int BFS(int x, int y)
 		for (int i = 0; i < 4; i++)
 		{
 			int nx = x + dx[i];
-			int ny = x + dy[i];
+			int ny = y + dy[i];
 
 			if ((nx < 0 || nx >= N || ny < 0 || ny >= M)) continue;
 
