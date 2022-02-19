@@ -1,16 +1,15 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
+
 //queue push add last element 
 //queue pop delete first element
 
 
 using namespace std;
 //BFS is guaranteed optimal solution
-int N, M;
 int arr[201][201];
-
-static constexpr int dx[] = { -1,0,1,0 };
-static constexpr int dy[] = { 0,-1,0,1 };
+int N, M;
+int dx[] = { -1,0,1,0 };
+int dy[] = { 0,-1,0,1 };
 
 /* bool IsSafe(int x, int y)
 {
@@ -21,13 +20,13 @@ static constexpr int dy[] = { 0,-1,0,1 };
 	return false;
 }*/
 
-int BFS(int startX, int startY)
+int BFS(int x, int y)
 {
+	cout << "start";
 	queue<pair<int, int>> q;
-	q.push({ startX,startY });
-	q.pop();
+	q.push({ x,y });
 
-	while (true) {
+	while (!q.empty()) { // queue is empty 
 		cout << "start";
 		int x = q.front().first;
 		int y = q.front().second;
@@ -39,7 +38,9 @@ int BFS(int startX, int startY)
 			int ny = x + dy[i];
 
 			if ((nx < 0 || nx >= N || ny < 0 || ny >= M)) continue;
+
 			if (arr[nx][ny] == 0) continue;
+
 			if (arr[nx][ny] == 1) {
 				cout << "move";
 				arr[nx][ny] = arr[x][y] + 1;
@@ -47,12 +48,8 @@ int BFS(int startX, int startY)
 			}
 
 		}
-		if (q.empty()) {
-			cout << "finish";
-			return arr[N-1][M-1];
-		}
-
 	}
+	return arr[N - 1][M - 1];
 }
 
 int main(void)
@@ -62,13 +59,12 @@ int main(void)
 	{
 		for (int j = 0; j < M; j++)
 		{
-			int x;
-			cin >> x;
-			arr[i][j] = x;
+			cin >> arr[i][j];
+			cout << "for";
 		}
 	}
-	cout << BFS(0, 0) << endl;
 
+	cout << BFS(0, 0) << endl;
 
 	return 0;
 }
