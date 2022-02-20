@@ -16,8 +16,8 @@ void dfs(int x) {
 	for (int i = 0; i < arr[x].size(); i++) {
 		int y = arr[x][i];
 		if (!isCheck[y]) {
-			dfs(y);
 			cnt++;
+			dfs(y);
 		}
 	}
 }
