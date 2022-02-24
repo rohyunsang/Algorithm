@@ -9,16 +9,24 @@ int dy[] = {1,-1,0,0};
 int arr[1000][1000];
 int cnt = 0;
 
+queue<pair<int, int>> q;
 
-void BFS(int x, int y){
-    if(arr[x][y] == 0 && arr[x][y] == -1) continue;
-    if(arr[x][y] >= 1) {
+
+void BFS(void){
+    
+    while(!q.empty()){
+        
+        int x = q.front().first;
+        int y = q.front().second;
+        q.pop();
+        
         for(int i = 0 ; i< 4; i++){
-            int dx = x + dx[i];
-            int dy = y + dy[i];
-            if(dx > 0 && dx <= N && dy > 0 && dy <= M)
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if((0 <= nx && 0 <= ny && nx < M && ny < N) && arr[nx][ny] == 0)
             {
-                arr[dx][dy] = arr[x][y] +1;
+                arr[nx][ny] = arr[x][y] +1;
+                q.push(make_pair(nx,ny));
             }
         }
     }
@@ -34,16 +42,30 @@ int main() {
 	        int x;
 	        cin >> x;
 	        arr[i][j] = x;
+	        if(arr[i][j] == 1){
+	            q.push(make_pair(i,j));
+	        }
 	    }
 	}
+	
+	BFS();
 	
 	for(int i = 0; i< N; i++)
 	{
 	    for(int j =0 ; j<M;j++)
 	    {
-	        BFS(i,j);
+	        if(arr[i][j] == 0){
+	            cout << "-1" ;
+	            return 0;
+	        }
+	        
+	        if(cnt < arr[i][j]){
+	            cnt = arr[i][j];
+	        }
 	    }
 	}
+	
+	cout << cnt-1;
 	
 	return 0;
 }
