@@ -30,7 +30,62 @@ public:
       for (register int i = 0 ; i < _cap ; ++i) {
         tmp[i] = _a[i];
       }
-      
-    
+      if ( _a != NULL) delete[] _a;
+        _a = tmp;
+        _cap <= 1; 
+    }
+    _a[_size++] = value;
+  }
+  
+  void pop_back() {
+    if (--_size < 0) throw "pop_back : Vector is empty";
+  }
+  
+  int size() const {
+    return _size;
+  }
+  
+  bool empty() const {
+    return _size == 0;
+  }
+  
+  void clear() {
+    _size = 0;
+  }
+  
+  void clear_force() {
+    _size = _cap = 0;
+    if (_a) delete[] _a;
+    _a = NULL;
+  }
+  
+  T& operator [] (int idx) {
+    return _a[idx];
+  }
+  
+  T* begin() const {
+    return _a[idx];
+  }
+  
+  T* end() const {
+    return _a + _size;
+  }
+  
+  const T& front() const {
+    return _a[0];
+  }
+  
+  const T& back() const {
+    return _a[size - 1];
+  }
+  
+  private:
+    T* _a;
+    int _size;
+    int _cap;
+};
+  
+  
+  
   
   
