@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// ë” í° ë…¸ë“œê°€ ë” ì‘ì€ ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ê²Œ í•˜ë©´ ëœë‹¤!
+
 int v, e;
 int parent[100001];
 
@@ -26,14 +28,14 @@ int main(void) {
 		unionParent(a, b);
 	}
 
-	cout << "°¢ ¿ø¼Ò°¡ ¼ÓÇÑ ÁıÇÕ : ";
+	cout << "ê° ì›ì†Œê°€ ì†í•œ ì§‘í•© : ";
 	for (int i = 0; i <= v; i++)
 	{
 		cout << findParent(i) << ' ';
 	}
 	cout << '\n';
 
-	cout << "ºÎ¸ğ Å×ÀÌºí : ";
+	cout << "ë¶€ëª¨ í…Œì´ë¸” : ";
 	for (int i = 0; i <= v; i++)
 	{
 		cout << parent[i] << ' ';
