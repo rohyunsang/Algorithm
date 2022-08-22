@@ -5,13 +5,24 @@ using namespace std;
 int N, M; // 1<= N <= 1,000 , 1<= M <= 10,000
 int V; //Start at V
 
-vector<int> e[1001];
+vector<int> v[1001];
+vector<int> v_dfs;
+
+vector<int> v_bfs[1001];
 bool check[1001];
+bool visit[1001];
 
 
-void DFS(const vector<int> &v);
+void DFS(int x);
 {
+	visit[x] = true;
+	v_dfs.push_back(x);
 
+	for (int i = 0; i < v[x].size(); i++) {
+		if (visit[v[x][i]]) {
+			dfs(v[x][i]);
+		}
+	}
 
 }
 void BFS(const vector<int>& v);
