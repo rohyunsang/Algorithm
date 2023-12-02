@@ -38,7 +38,11 @@ public:
   }
   
   void pop_back() {
-    if (--_size < 0) throw "pop_back : Vector is empty";
+  if (_size == 0) {
+    throw std::runtime_error("pop_back: Vector is empty");
+  }
+  _size--;
+  // 여기에 필요한 경우 메모리 축소 로직 추가
   }
   
   int size() const {
