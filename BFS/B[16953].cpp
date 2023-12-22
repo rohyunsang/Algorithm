@@ -29,7 +29,6 @@ int main() {
 
 		if (10 * k + 1 <= b)
 			q.push({ 10 * k + 1,n + 1 });
-
 	}
 
 	cout << res;
