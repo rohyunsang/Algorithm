@@ -38,10 +38,10 @@ int main() {
 			idx_first = start;
 			idx_second = end;
 
-			
-		}
-		if (sum == 0)
+			if (sum == 0)
 			break;
+		}
+		
 		if (sum < 0)
 			start++;
 		else
